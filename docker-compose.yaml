@@ -9,8 +9,8 @@ services:
   networks:
    network-ffm:
    ipv4_address: 172.20.0.2
-  #volumes:
-  # -volume-ffm: /var/ffm
+  volumes:
+   -volume-ffm: /var/ffm
   entrypoint: /bin/bash
   stdin_open: true # docker run -i
   tty: true #docker run -t
@@ -25,5 +25,5 @@ networks:
    com.docker.network.bridge.name: network-ffm
   ipam:
    config:
-    -subnet: 172.20.0.0/23
-     gateway: 172.20.0.1
+    - subnet: 172.20.0.0/23
+      gateway: 172.20.0.1
