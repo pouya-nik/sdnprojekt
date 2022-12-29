@@ -1,0 +1,29 @@
+#$ docker run --hostname atomix1 --name atomix-1
+# --ip 172.20.0.2 --network network-ffm -itd sdnprojekt/atomix:1.0.0 
+version: '3.8'
+
+services:
+ atomix-1:
+  image: sdnprojekt/atomix:1.0.0
+  #ports:
+  networks:
+   network-ffm:
+   ipv4_address: 172.20.0.2
+  #volumes:
+  # -volume-ffm: /var/ffm
+  entrypoint: /bin/bash
+  stdin_open: true # docker run -i
+  tty: true #docker run -t
+
+#volumes:
+# volume-ffm:
+
+networks:
+ network-ffm:
+  driver: dridge
+  driver_opts:
+   com.docker.network.bridge.name: network-ffm
+  ipam:
+   config:
+    -subnet: 172.20.0.0/23
+    gateway: 172.20.0.1
