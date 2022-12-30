@@ -47,6 +47,7 @@ services:
 
 networks:
  network-ffm:
+  name: network-ffm
   driver: bridge
   driver_opts:
    com.docker.network.bridge.name: network-ffm
