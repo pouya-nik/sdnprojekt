@@ -20,3 +20,12 @@ docker restart atomix-1
 docker restart atomix-2
 docker restart onos1
 docker restart onos2
+
+#add matching host key to ssh config
+echo "Host 172.20.0.4
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+Host 172.20.0.5
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+"> ~/.ssh/config
