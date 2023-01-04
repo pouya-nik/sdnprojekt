@@ -1,0 +1,113 @@
+version: '2.4'
+
+services:
+ mininet1:
+  image: sdnprojekt/mininet:1.0.0
+  container_name: mininet1
+  networks:
+   network-ffm:
+    ipv4_address: 172.20.0.10
+  #entrypoint: /bin/bash
+  stdin_open: true # docker run -i
+  tty: true #docker run -t
+  privileged: true
+  environment:
+    - DISPLAY
+  volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - /lib/modules:/lib/modules
+  
+ mininet2:
+  image: sdnprojekt/mininet:1.0.0
+  container_name: mininet2
+  networks:
+   network-bln:
+    ipv4_address: 172.21.0.10
+  #entrypoint: /bin/bash
+  stdin_open: true # docker run -i
+  tty: true #docker run -t
+  privileged: true
+  environment:
+    - DISPLAY
+  volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - /lib/modules:/lib/modules
+
+ mininet3:
+  image: sdnprojekt/mininet:1.0.0
+  container_name: mininet3
+  networks:
+   network-muc:
+    ipv4_address: 172.22.0.10
+  #entrypoint: /bin/bash
+  stdin_open: true # docker run -i
+  tty: true #docker run -t
+  privileged: true
+  environment:
+    - DISPLAY
+  volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - /lib/modules:/lib/modules
+
+ mininet4:
+  image: sdnprojekt/mininet:1.0.0
+  container_name: mininet4
+  networks:
+   network-hmb:
+    ipv4_address: 172.23.0.10
+  #entrypoint: /bin/bash
+  stdin_open: true # docker run -i
+  tty: true #docker run -t
+  privileged: true
+  environment:
+    - DISPLAY
+  volumes:
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    - /lib/modules:/lib/modules
+#volumes:
+# volume-ffm:
+
+networks:
+ network-ffm:
+  name: network-ffm
+  driver: bridge
+  driver_opts:
+   com.docker.network.bridge.name: network-ffm
+  ipam:
+   config:
+    -
+      subnet: 172.20.0.0/23
+      gateway: 172.20.0.1
+ 
+ network-bln:
+  name: network-bln
+  driver: bridge
+  driver_opts:
+   com.docker.network.bridge.name: network-bln
+  ipam:
+   config:
+    -
+      subnet: 172.21.0.0/23
+      gateway: 172.21.0.10.1
+
+ network-muc:
+  name: network-muc
+  driver: bridge
+  driver_opts:
+   com.docker.network.bridge.name: network-muc
+  ipam:
+   config:
+    -
+      subnet: 172.22.0.0/23
+      gateway: 172.22.0.1
+
+ network-hmb:
+  name: network-hmb
+  driver: bridge
+  driver_opts:
+   com.docker.network.bridge.name: network-hmb
+  ipam:
+   config:
+    -
+      subnet: 172.23.0.0/23
+      gateway: 172.23.0.1
