@@ -4,6 +4,7 @@ services:
  mininet1:
   image: sdnprojekt/mininet:1.0.0
   container_name: mininet1
+  hostname: mininet1
   networks:
    network-ffm:
     ipv4_address: 172.20.0.10
@@ -20,6 +21,7 @@ services:
  mininet2:
   image: sdnprojekt/mininet:1.0.0
   container_name: mininet2
+  hostname: mininet2
   networks:
    network-bln:
     ipv4_address: 172.21.0.10
@@ -36,6 +38,7 @@ services:
  mininet3:
   image: sdnprojekt/mininet:1.0.0
   container_name: mininet3
+  hostname: mininet3
   networks:
    network-muc:
     ipv4_address: 172.22.0.10
@@ -52,6 +55,7 @@ services:
  mininet4:
   image: sdnprojekt/mininet:1.0.0
   container_name: mininet4
+  hostname: mininet4
   networks:
    network-hmb:
     ipv4_address: 172.23.0.10
@@ -64,8 +68,7 @@ services:
   volumes:
     - /tmp/.X11-unix:/tmp/.X11-unix
     - /lib/modules:/lib/modules
-#volumes:
-# volume-ffm:
+
 
 networks:
  network-ffm:

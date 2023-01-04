@@ -6,6 +6,7 @@ services:
  atomix_1:
   image: atomix/atomix:3.1.12
   container_name: atomix-1
+  hostname: atomix1
   networks:
    network-ffm:
     ipv4_address: 172.20.0.2
@@ -16,6 +17,7 @@ services:
  atomix_2:
   image: atomix/atomix:3.1.12
   container_name: atomix-2
+  hostname: atomix2
   networks:
    network-ffm:
     ipv4_address: 172.20.0.3
@@ -26,6 +28,7 @@ services:
  onos1:
   image: onosproject/onos:2.7.0
   container_name: onos1
+  hostname: onos1
   networks:
    network-ffm:
     ipv4_address: 172.20.0.4
@@ -36,6 +39,7 @@ services:
  onos2:
   image: onosproject/onos:2.7.0
   container_name: onos2
+  hostname: onos2
   networks:
    network-ffm:
     ipv4_address: 172.20.0.5
