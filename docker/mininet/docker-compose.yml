@@ -88,7 +88,7 @@ networks:
    config:
     -
       subnet: 172.21.0.0/23
-      gateway: 172.21.0.10.1
+      gateway: 172.21.0.1
 
  network-muc:
   name: network-muc
