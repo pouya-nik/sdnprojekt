@@ -1,0 +1,26 @@
+version: '2.4'
+
+services:
+  
+ onos:
+  image: onosproject/onos:2.7.0
+  container_name: onos
+  hostname: onos
+  networks:
+   network-ffm:
+    ipv4_address: 172.20.1.4
+  #entrypoint: /bin/bash
+  stdin_open: true # docker run -i
+  tty: true #docker run -t
+
+networks:
+ network-ffm:
+  name: network-ffm
+  driver: bridge
+  driver_opts:
+   com.docker.network.bridge.name: network-ffm
+  ipam:
+   config:
+    -
+      subnet: 172.20.0.0/23
+      gateway: 172.20.0.1
