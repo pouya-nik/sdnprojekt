@@ -8,7 +8,7 @@ services:
   hostname: onos
   networks:
    network-ffm:
-    ipv4_address: 172.20.1.4
+    ipv4_address: 172.20.0.250
   #entrypoint: /bin/bash
   stdin_open: true # docker run -i
   tty: true #docker run -t
